@@ -46,11 +46,9 @@ builder.Services.AddCors(opt =>
 var app = builder.Build();
 
 app.UseAuthentication()
-   .UseAuthorization()
-   .UseCors();
+   .UseCors()
+   .UseAuthorization();
 
 app.MapGraphQLHttp()
-   // If you uncomment this line the CORS will stops work
-   //.RequireAuthorization()
-   ;
+   .RequireAuthorization();
 app.Run();
